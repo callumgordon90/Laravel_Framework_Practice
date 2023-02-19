@@ -26,6 +26,7 @@ Route::get('/hello', function(){
 
 
 //created another endpoint with the get method, but with the endpoint directory 'posts/{id}'
+// added 'where' constraint
 Route::get('posts/{id}', function($id){
     return response('Post ' . $id);
-});
+})->where('id', '[0-9]+');
