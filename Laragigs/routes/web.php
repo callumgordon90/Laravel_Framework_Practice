@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 //here 'view' refers to the blade folder: resources>views>welcome.blade.php
 Route::get('/', function () {
-    return view('welcome');
+    return view('listings', [
+        'heading'=>'Latest Listings'
+    ]);
 });
 
 //new endpoint practice with get request and response wrappers
@@ -32,6 +34,9 @@ Route::get('posts/{id}', function($id){
     return response('Post ' . $id);
 })->where('id', '[0-9]+');
 
+
+
+//search endpoint
 Route::get('/search', function(Request $request) {
     
     dd($request->name . ' ' . $request->city);
